@@ -53,15 +53,98 @@ param(
 
 
 <# FUNCTIONS #>
-
 #Include external Functions
-. "$PSScriptRoot\functions\Install-Prerequisites.ps1"
-. "$PSScriptRoot\functions\Update-StoreApps.ps1"
-. "$PSScriptRoot\functions\Add-ScopeMachine.ps1"
-. "$PSScriptRoot\functions\Get-WingetCmd.ps1"
-. "$PSScriptRoot\functions\Write-ToLog.ps1"
-. "$PSScriptRoot\functions\Confirm-Installation.ps1"
-
+$FilePath = "$PSScriptRoot\functions\Write-ToLog.ps1"
+if (Test-Path $FilePath) {
+    . $FilePath
+}
+else {
+    if (Get-Command -Name "Write-ToLog" -ErrorAction SilentlyContinue) {
+        Write-ToLog "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." "Red"
+    }
+    else {
+        Write-Host "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." -ForegroundColor Red
+    }
+    Exit 1
+}
+$FilePath = "$PSScriptRoot\functions\Install-Prerequisites.ps1"
+if (Test-Path $FilePath) {
+    . $FilePath
+}
+else {
+    if (Get-Command -Name "Write-ToLog" -ErrorAction SilentlyContinue) {
+        Write-ToLog "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." "Red"
+    }
+    else {
+        Write-Host "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." -ForegroundColor Red
+    }
+    Exit 1
+}
+$FilePath = "$PSScriptRoot\functions\Update-StoreApps.ps1"
+if (Test-Path $FilePath) {
+    . $FilePath
+}
+else {
+    if (Get-Command -Name "Write-ToLog" -ErrorAction SilentlyContinue) {
+        Write-ToLog "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." "Red"
+    }
+    else {
+        Write-Host "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." -ForegroundColor Red
+    }
+    Exit 1
+}
+$FilePath = "$PSScriptRoot\functions\Add-ScopeMachine.ps1"
+if (Test-Path $FilePath) {
+    . $FilePath
+}
+else {
+    if (Get-Command -Name "Write-ToLog" -ErrorAction SilentlyContinue) {
+        Write-ToLog "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." "Red"
+    }
+    else {
+        Write-Host "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." -ForegroundColor Red
+    }
+    Exit 1
+}
+$FilePath = "$PSScriptRoot\functions\Add-ScopeMachine.ps1"
+if (Test-Path $FilePath) {
+    . $FilePath
+}
+else {
+    if (Get-Command -Name "Write-ToLog" -ErrorAction SilentlyContinue) {
+        Write-ToLog "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." "Red"
+    }
+    else {
+        Write-Host "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." -ForegroundColor Red
+    }
+    Exit 1
+}
+$FilePath = "$PSScriptRoot\functions\Get-WingetCmd.ps1"
+if (Test-Path $FilePath) {
+    . $FilePath
+}
+else {
+    if (Get-Command -Name "Write-ToLog" -ErrorAction SilentlyContinue) {
+        Write-ToLog "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." "Red"
+    }
+    else {
+        Write-Host "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." -ForegroundColor Red
+    }
+    Exit 1
+}
+$FilePath = "$PSScriptRoot\functions\Confirm-Installation.ps1"
+if (Test-Path $FilePath) {
+    . $FilePath
+}
+else {
+    if (Get-Command -Name "Write-ToLog" -ErrorAction SilentlyContinue) {
+        Write-ToLog "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." "Red"
+    }
+    else {
+        Write-Host "Error: Cannot find required file $FilePath - Unable to import function. Aborting run." -ForegroundColor Red
+    }
+    Exit 1
+}
 
 #Check if App exists in Winget Repository
 function Confirm-Exist ($AppID) {
